@@ -1,1 +1,1 @@
-# pantucz
+# pantu.cz
