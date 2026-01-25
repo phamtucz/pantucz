@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>PanTu Reality | Ing. Minh Tu Pham – Prodej nemovitostí Vietnamcům & Realitní makléř Praha</title>
+    <title>PanTu Reality | Ing. Minh Tu Pham – Realitní makléř Praha</title>
     
     <meta name="description" content="Specialista na prodej nemovitostí v Praze. 65-80 % mých klientů jsou Češi. Spojuji český trh s bonitní vietnamskou klientelou.">
     <meta name="keywords" content="realitní makléř Praha, prodej nemovitosti Vietnamcům, makléř pro Vietnamce, Ing. Minh Tu Pham, PanTu Reality, môi giới bất động sản Praha, mua nhà Praha">
@@ -15,7 +15,7 @@
     <meta property="og:title" content="PanTu Reality – Cầu nối Bất động sản Việt - Séc">
     <meta property="og:description" content="Prodám vaši nemovitost rychle. 65-80% mých klientů jsou Češi. Spojuji to nejlepší z obou světů.">
     <meta property="og:image" content="static/img/landing-hero.jpeg">
-    <meta property="og:url" content="static/img/">
+    <meta property="og:url" content="https://www.pantu.cz/">
     <meta property="og:type" content="website">
 
     <script type="application/ld+json">
@@ -56,104 +56,95 @@
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 70px; /* Kvůli fixnímu navbaru */
         }
 
-        /* Language Switcher */
-        [data-lang] { display: none; }
-        [data-lang].active { display: block; }
-        span[data-lang].active, a[data-lang].active { display: inline-block; }
+        /* Language Switcher Logic */
+        [data-lang] { display: none !important; }
+        [data-lang].active { display: block !important; }
+        span[data-lang].active, a[data-lang].active, button[data-lang].active { display: inline-block !important; }
+        .nav-item[data-lang].active { display: list-item !important; }
 
         /* Navbar */
         .navbar {
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            background: white;
-            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.95);
         }
         .navbar-brand {
             font-weight: 700;
-            font-size: 1.5rem;
             color: var(--primary-color) !important;
         }
-        .nav-link {
-            font-weight: 500;
-            color: var(--text-color) !important;
-            margin: 0 10px;
-            cursor: pointer;
-        }
-        .nav-link:hover { color: var(--primary-color) !important; }
+        .navbar-brand span { color: var(--secondary-color); }
         
         .lang-btn {
-            background: none;
-            border: none;
-            padding: 0;
-            margin-left: 10px;
-            cursor: pointer;
-            opacity: 0.6;
-            transition: all 0.2s;
+            background: none; border: none; padding: 0; margin-left: 10px;
+            cursor: pointer; opacity: 0.5; transition: 0.3s;
         }
-        .lang-btn.active-lang {
-            opacity: 1;
-            transform: scale(1.1);
-            border-bottom: 2px solid var(--secondary-color);
-        }
-        .lang-btn img { height: 20px; width: auto; border: 1px solid #ddd; }
+        .lang-btn.active-lang { opacity: 1; transform: scale(1.1); border-bottom: 2px solid var(--secondary-color); }
+        .lang-btn img { height: 20px; width: auto; border-radius: 2px; }
 
-        /* Hero */
-        .hero-banner { width: 100%; height: auto; display: block; margin-top: 60px; }
-        
-        /* Sections */
-        section { padding: 60px 0; }
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-weight: 700;
-            color: var(--primary-color);
+        /* Hero Landing Section */
+        .hero-landing {
             position: relative;
+            min-height: 600px;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('static/img/landing-hero.jpeg') no-repeat center center/cover;
+        }
+        .hero-content { max-width: 800px; }
+        .hero-content h1 { font-size: 3.5rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero-content .lead { font-size: 1.5rem; margin-bottom: 2rem; }
+
+        /* Sections */
+        section { padding: 80px 0; }
+        .section-title {
+            text-align: center; margin-bottom: 50px;
+            font-weight: 700; color: var(--primary-color);
         }
         .section-title::after {
             content: ''; display: block; width: 60px; height: 3px;
             background: var(--secondary-color); margin: 15px auto 0;
         }
 
-        .feature-box, .service-card {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            height: 100%;
-            transition: transform 0.3s;
+        .feature-box {
+            background: white; padding: 30px; border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: 100%;
+            border-left: 4px solid var(--secondary-color); transition: 0.3s;
         }
-        .feature-box { border-left: 4px solid var(--secondary-color); }
-        .service-card { text-align: center; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .icon-large { font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 15px; }
+        .feature-box:hover { transform: translateY(-5px); }
+        .icon-large { font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 20px; }
 
         .about-img {
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            max-width: 100%;
-            border: 4px solid white;
+            border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 5px solid white; width: 100%;
         }
 
         .check-list { list-style: none; padding: 0; }
-        .check-list li { margin-bottom: 10px; display: flex; align-items: flex-start; }
-        .check-list li i { color: #28a745; margin-right: 10px; margin-top: 5px; }
+        .check-list li { margin-bottom: 12px; display: flex; align-items: flex-start; }
+        .check-list li i { color: #28a745; margin-right: 12px; margin-top: 5px; }
 
         .float-btn {
-            position: fixed; bottom: 20px; right: 20px;
+            position: fixed; bottom: 30px; right: 30px;
             background: var(--secondary-color); color: white;
-            padding: 12px 24px; border-radius: 50px; font-weight: bold;
-            text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 1000; transition: all 0.3s;
+            padding: 15px 25px; border-radius: 50px; font-weight: bold;
+            text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000; transition: 0.3s;
         }
         .float-btn:hover { background: #a00015; color: white; transform: scale(1.05); }
 
-        footer { background: #222; color: white; padding: 40px 0 20px; text-align: center; }
-        footer a { color: #ccc; text-decoration: none; }
+        footer { background: #1a1a1a; color: #ddd; padding: 60px 0 30px; }
+        footer a { color: #fff; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-landing { height: auto; padding: 100px 0; }
+        }
     </style>
 </head>
 <body>
-    <div id="fb-root"></div>
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
@@ -165,107 +156,89 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
-                    <li class="nav-item"><a class="nav-link active" data-lang="cs" href="#proc-ja">Proč já</a></li>
-                    <li class="nav-item"><a class="nav-link active" data-lang="cs" href="#sluzby">Služby</a></li>
-                    <li class="nav-item"><a class="nav-link active" data-lang="cs" href="#trh">O trhu</a></li>
-                    <li class="nav-item"><a class="nav-link active" data-lang="cs" href="#o-mne">O mně</a></li>
-                    <li class="nav-item"><a class="nav-link active" data-lang="cs" href="#kontakt">Kontakt</a></li>
+                    <li class="nav-item" data-lang="cs"><a class="nav-link" href="#proc-ja">Proč já</a></li>
+                    <li class="nav-item" data-lang="cs"><a class="nav-link" href="#sluzby">Služby</a></li>
+                    <li class="nav-item" data-lang="cs"><a class="nav-link" href="#o-mne">O mně</a></li>
+                    <li class="nav-item" data-lang="cs"><a class="nav-link" href="#kontakt">Kontakt</a></li>
 
-                    <li class="nav-item"><a class="nav-link" data-lang="vi" href="#proc-ja">Tại sao chọn tôi</a></li>
-                    <li class="nav-item"><a class="nav-link" data-lang="vi" href="#sluzby">Dịch vụ</a></li>
-                    <li class="nav-item"><a class="nav-link" data-lang="vi" href="#trh">Thị trường</a></li>
-                    <li class="nav-item"><a class="nav-link" data-lang="vi" href="#o-mne">Về tôi</a></li>
-                    <li class="nav-item"><a class="nav-link" data-lang="vi" href="#kontakt">Liên hệ</a></li>
+                    <li class="nav-item" data-lang="vi"><a class="nav-link" href="#proc-ja">Tại sao chọn tôi</a></li>
+                    <li class="nav-item" data-lang="vi"><a class="nav-link" href="#sluzby">Dịch vụ</a></li>
+                    <li class="nav-item" data-lang="vi"><a class="nav-link" href="#o-mne">Về tôi</a></li>
+                    <li class="nav-item" data-lang="vi"><a class="nav-link" href="#kontakt">Liên hệ</a></li>
 
-                    <li class="nav-item ms-3 d-flex">
-                        <button onclick="setLanguage('cs')" class="lang-btn" id="btn-cs"><img src="static/img/cz.jpg" alt="CZ"></button>
-                        <button onclick="setLanguage('vi')" class="lang-btn" id="btn-vi"><img src="static/img/vn.jpg" alt="VN"></button>
+                    <li class="nav-item ms-lg-3 d-flex">
+                        <button onclick="setLanguage('cs')" class="lang-btn" id="btn-cs" title="Čeština"><img src="static/img/cz.jpg" alt="CZ"></button>
+                        <button onclick="setLanguage('vi')" class="lang-btn" id="btn-vi" title="Tiếng Việt"><img src="static/img/vn.jpg" alt="VN"></button>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <img src="static/img/landing-hero.jpeg" alt="PanTu Reality" class="hero-banner img-fluid">
-
-    <section class="bg-light text-center py-5">
+    <header class="hero-landing">
         <div class="container">
-            <div data-lang="cs" class="active">
-                <h1 class="display-5 fw-bold text-primary mb-3">Prodám vaši nemovitost rychle a za nejlepší cenu.</h1>
-                <h3 class="lead text-muted mb-4">Ing. Minh Tu Pham – Váš most mezi českým trhem a bonitní vietnamskou komunitou.</h3>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="#kontakt" class="btn btn-primary btn-lg">Kontaktujte mě</a>
-                    <a href="kalkulacka.html" class="btn btn-outline-danger btn-lg">Finanční kalkulačka</a>
+            <div class="hero-content">
+                <div data-lang="cs">
+                    <h1>Prodám vaši nemovitost rychle a za nejlepší cenu.</h1>
+                    <p class="lead">Ing. Minh Tu Pham – Váš most mezi českým trhem a bonitní vietnamskou komunitou.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#kontakt" class="btn btn-primary btn-lg px-4">Kontaktujte mě</a>
+                        <a href="https://nnmm.cz/kalkulacka.html" class="btn btn-outline-light btn-lg px-4">Finanční kalkulačka</a>
+                    </div>
                 </div>
-            </div>
 
-            <div data-lang="vi">
-                <h1 class="display-5 fw-bold text-primary mb-3">An Cư Để Thịnh Vượng cùng PanTu Reality</h1>
-                <h3 class="lead text-muted mb-4">Kỹ sư Phạm Minh Tứ – Chuyên gia Bất động sản & Tài chính uy tín nhất cho người Việt tại Praha.</h3>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="#kontakt" class="btn btn-primary btn-lg">Liên hệ tư vấn</a>
-                    <a href="kalkulacka.html" class="btn btn-outline-danger btn-lg">Bảng tính tài chính</a>
+                <div data-lang="vi">
+                    <h1>An Cư Để Thịnh Vượng cùng PanTu Reality</h1>
+                    <p class="lead">Kỹ sư Phạm Minh Tứ – Chuyên gia Bất động sản & Tài chính uy tín nhất cho người Việt tại Praha.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#kontakt" class="btn btn-primary btn-lg px-4">Liên hệ tư vấn</a>
+                        <a href="https://nnmm.cz/kalkulacka.html" class="btn btn-outline-light btn-lg px-4">Bảng tính tài chính</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
     <section id="proc-ja">
         <div class="container">
-            <h2 class="section-title" data-lang="cs">Proč si vybrat vietnamského makléře?</h2>
-            <h2 class="section-title" data-lang="vi">Vì sao nên chọn môi giới người Việt?</h2>
+            <h2 class="section-title" data-lang="cs">Proč si vybrat mě?</h2>
+            <h2 class="section-title" data-lang="vi">Vì sao nên chọn tôi?</h2>
             
             <div class="row g-4">
-                <div class="col-md-6">
+                <div class="col-md-6 col-lg-3">
                     <div class="feature-box">
                         <i class="fa-solid fa-chart-line icon-large"></i>
-                        <div data-lang="cs">
-                            <h4>Vysoká poptávka & Hotovost</h4>
-                            <p>Vietnamští kupci často disponují hotovostí a rozhodují se rychle. Pro vás to znamená bezpečný a rychlý prodej.</p>
-                        </div>
-                        <div data-lang="vi">
-                            <h4>Nhu cầu cao & Tài chính tốt</h4>
-                            <p>Cộng đồng người Việt có nhu cầu mua nhà rất lớn và thường có sẵn tài chính. Giao dịch diễn ra nhanh chóng.</p>
-                        </div>
+                        <h4 data-lang="cs">Rychlý prodej</h4>
+                        <h4 data-lang="vi">Bán nhanh</h4>
+                        <p data-lang="cs">Vietnamští kupci disponují hotovostí a rozhodují se rychle.</p>
+                        <p data-lang="vi">Cộng đồng người Việt thường có sẵn tài chính, giao dịch nhanh gọn.</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-lg-3">
                     <div class="feature-box">
                         <i class="fa-solid fa-earth-asia icon-large"></i>
-                        <div data-lang="cs">
-                            <h4>Bez jazykové bariéry</h4>
-                            <p>Mluvím plynně česky i vietnamsky. Eliminuji nedorozumění a vyjednám pro vás ty nejlepší podmínky.</p>
-                        </div>
-                        <div data-lang="vi">
-                            <h4>Thấu hiểu văn hóa</h4>
-                            <p>Am hiểu ngôn ngữ và tâm lý giúp việc đàm phán trở nên hiệu quả, tránh những hiểu lầm không đáng có.</p>
-                        </div>
+                        <h4 data-lang="cs">Bez bariér</h4>
+                        <h4 data-lang="vi">Không rào cản</h4>
+                        <p data-lang="cs">Mluvím plynně oběma jazyky. Vyjednám vám nejlepší cenu.</p>
+                        <p data-lang="vi">Thông thạo hai ngôn ngữ giúp đàm phán hiệu quả và chính xác.</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-lg-3">
                     <div class="feature-box">
                         <i class="fa-solid fa-rocket icon-large"></i>
-                        <div data-lang="cs">
-                            <h4>Okamžitý přístup k zájemcům</h4>
-                            <p>Působím přímo v srdci komunity (SAPA). Vaši nemovitost nabídnu tisícům potenciálních kupců ihned.</p>
-                        </div>
-                        <div data-lang="vi">
-                            <h4>Tiếp cận nhanh chóng</h4>
-                            <p>Nhờ quan hệ trực tiếp tại SAPA và cộng đồng, tôi kết nối ngay lập tức với những người mua thiện chí nhất.</p>
-                        </div>
+                        <h4 data-lang="cs">Srdce komunity</h4>
+                        <h4 data-lang="vi">Trung tâm kết nối</h4>
+                        <p data-lang="cs">Působím přímo v SAPA. Vaši nabídku uvidí tisíce zájemců ihned.</p>
+                        <p data-lang="vi">Văn phòng tại SAPA giúp tiếp cận khách hàng tiềm năng ngay lập tức.</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-lg-3">
                     <div class="feature-box">
                         <i class="fa-solid fa-handshake-simple icon-large"></i>
-                        <div data-lang="cs">
-                            <h4>Důvěra komunity</h4>
-                            <p>Mám dlouholetou reputaci (Pan Tu), díky které se obchody uzavírají hladce a spolehlivě.</p>
-                        </div>
-                        <div data-lang="vi">
-                            <h4>Uy tín & Tin cậy</h4>
-                            <p>Thương hiệu "Phạm Minh Tứ" (Pan Tu) đã được khẳng định trong cộng đồng. Đây là bảo chứng cho giao dịch an toàn.</p>
-                        </div>
+                        <h4 data-lang="cs">Silné zázemí</h4>
+                        <h4 data-lang="vi">Uy tín lâu năm</h4>
+                        <p data-lang="cs">Zázemí sítě BePlan a tým 20 profesionálů za mými zády.</p>
+                        <p data-lang="vi">Đội ngũ 20 chuyên gia cùng tập đoàn BePlan hỗ trợ pháp lý.</p>
                     </div>
                 </div>
             </div>
@@ -274,84 +247,41 @@
 
     <section id="sluzby" class="bg-light">
         <div class="container">
-            <h2 class="section-title" data-lang="cs">Služby PanTu Reality</h2>
-            <h2 class="section-title" data-lang="vi">Dịch vụ Mua & Bán Chuyên nghiệp</h2>
+            <h2 class="section-title" data-lang="cs">Moje služby</h2>
+            <h2 class="section-title" data-lang="vi">Dịch vụ chuyên nghiệp</h2>
 
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="h-100 p-4 bg-white rounded shadow-sm">
-                        <h3 class="text-primary mb-3" data-lang="cs"><i class="fa-solid fa-tag me-2"></i> Prodej nemovitosti (Pro Čechy)</h3>
-                        <h3 class="text-primary mb-3" data-lang="vi"><i class="fa-solid fa-tag me-2"></i> Bán Bất Động Sản</h3>
-                        
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="p-4 bg-white rounded shadow-sm h-100">
+                        <h3 class="text-primary mb-3"><i class="fa-solid fa-tag me-2"></i> <span data-lang="cs">Prodej nemovitosti</span><span data-lang="vi">Bán Bất Động Sản</span></h3>
                         <ul class="check-list" data-lang="cs">
                             <li><i class="fa-solid fa-check"></i> <strong>Cílení na Vietnamce:</strong> Prodej bonitním klientům.</li>
                             <li><i class="fa-solid fa-check"></i> Stanovení optimální tržní ceny.</li>
-                            <li><i class="fa-solid fa-check"></i> Právní a administrativní zajištění převodu.</li>
-                            <li><i class="fa-solid fa-check"></i> Profesionální prezentace.</li>
-                        </ul>
-                         <ul class="check-list" data-lang="vi">
-                            <li><i class="fa-solid fa-check"></i> Định giá thị trường tối ưu nhất.</li>
-                            <li><i class="fa-solid fa-check"></i> Marketing chuyên nghiệp, tiếp cận khách Séc và Việt.</li>
-                            <li><i class="fa-solid fa-check"></i> Lo trọn gói thủ tục pháp lý, giấy tờ, sang tên.</li>
-                            <li><i class="fa-solid fa-check"></i> Hỗ trợ bán nhanh, thanh khoản tốt.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="h-100 p-4 bg-white rounded shadow-sm">
-                        <h3 class="text-primary mb-3" data-lang="cs"><i class="fa-solid fa-basket-shopping me-2"></i> Nákup & Finance (Pro Vietnamce)</h3>
-                        <h3 class="text-primary mb-3" data-lang="vi"><i class="fa-solid fa-basket-shopping me-2"></i> Mua nhà & Tài chính</h3>
-
-                        <ul class="check-list" data-lang="cs">
-                            <li><i class="fa-solid fa-check"></i> Pomoc s hypotékou pro cizince.</li>
-                            <li><i class="fa-solid fa-check"></i> Vyhledávání investičních bytů.</li>
-                            <li><i class="fa-solid fa-check"></i> Prokázání původu peněz.</li>
+                            <li><i class="fa-solid fa-check"></i> Kompletní právní servis a úschova.</li>
+                            <li><i class="fa-solid fa-check"></i> Profesionální foto a video prezentace.</li>
                         </ul>
                         <ul class="check-list" data-lang="vi">
-                            <li><i class="fa-solid fa-check"></i> Tìm nhà đất theo đúng nhu cầu (ở hoặc kinh doanh).</li>
-                            <li><i class="fa-solid fa-check"></i> <strong>Vay thế chấp (Hypotéka):</strong> Giải quyết hồ sơ khó.</li>
-                            <li><i class="fa-solid fa-check"></i> Tư vấn chứng minh thu nhập, nguồn tiền.</li>
+                            <li><i class="fa-solid fa-check"></i> Định giá thị trường chính xác nhất.</li>
+                            <li><i class="fa-solid fa-check"></i> Marketing tiếp cận cả khách Séc và khách Việt.</li>
+                            <li><i class="fa-solid fa-check"></i> Giải quyết trọn gói thủ tục pháp lý, sang tên.</li>
+                            <li><i class="fa-solid fa-check"></i> Hỗ trợ thanh khoản nhanh chóng.</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-
-            <div class="alert alert-danger mt-3">
-                <h5 data-lang="cs"><i class="fa-solid fa-bullhorn me-2"></i> Aktuálně pro své klienty hledám:</h5>
-                <h5 data-lang="vi"><i class="fa-solid fa-bullhorn me-2"></i> Hiện đang tìm gấp cho khách hàng:</h5>
-                <ul class="mb-0" data-lang="cs">
-                    <li>Obchodní prostory od 100 m2 a bytové domy v Praze 1, 2 a těsné okolí.</li>
-                    <li>Rodinné domy a byty v Praze 4 (Libuš, Písnice), 5, 9, 10 a okolí.</li>
-                    <li>Pozemky vhodné k výstavbě skladů poblíž SAPA.</li>
-                </ul>
-                <ul class="mb-0" data-lang="vi">
-                    <li>Cửa hàng từ 100m2 và toà nhà tại Praha 1, 2 và vùng lân cận</li>
-                    <li>Nhà và căn hộ tại Praha 4 (Libuš, Písnice), Praha 5, 9, 10 và lân cận.</li>
-                    <li>Đất phù hợp xây kho bãi gần khu vực SAPA.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="trh">
-        <div class="container">
-            <h2 class="section-title" data-lang="cs">Proč prodávat Vietnamcům?</h2>
-            <h2 class="section-title" data-lang="vi">Sức mạnh cộng đồng</h2>
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div data-lang="cs">
-                        <p class="lead"><strong>Cizinci kupují 20-30% nemovitostí v ČR. Umíte jim nabídnout tu svou?</strong></p>
-                        <ul class="check-list">
-                            <li><i class="fa-solid fa-info-circle text-primary"></i> <strong>Bonitní klienti:</strong> Prodejci si Vietnamce chválí, protože často platí včas.</li>
-                            <li><i class="fa-solid fa-info-circle text-primary"></i> <strong>Pracovitost:</strong> Statistiky ukazují, že Vietnamci mají vysokou kupní sílu.</li>
-                            <li><i class="fa-solid fa-info-circle text-primary"></i> <strong>Investice:</strong> Často hledají komerční objekty a pozemky.</li>
+                <div class="col-md-6">
+                    <div class="p-4 bg-white rounded shadow-sm h-100">
+                        <h3 class="text-primary mb-3"><i class="fa-solid fa-basket-shopping me-2"></i> <span data-lang="cs">Nákup & Finance</span><span data-lang="vi">Mua nhà & Tài chính</span></h3>
+                        <ul class="check-list" data-lang="cs">
+                            <li><i class="fa-solid fa-check"></i> Hypoteční úvěry pro cizince (i s komplikacemi).</li>
+                            <li><i class="fa-solid fa-check"></i> Prověření technického a právního stavu.</li>
+                            <li><i class="fa-solid fa-check"></i> Pomoc s prokazováním původu peněz.</li>
+                            <li><i class="fa-solid fa-check"></i> Investiční poradenství (byty na pronájem).</li>
                         </ul>
-                    </div>
-                    <div data-lang="vi">
-                        <p class="lead"><strong>Người Việt khẳng định vị thế trên thị trường BĐS Séc.</strong></p>
-                        <ul class="check-list">
-                            <li><i class="fa-solid fa-info-circle text-primary"></i> <strong>Uy tín tài chính:</strong> Các chủ nhà người Séc rất thích bán cho người Việt vì khả năng thanh toán.</li>
-                            <li><i class="fa-solid fa-info-circle text-primary"></i> <strong>Xu hướng mới:</strong> Chuyển dịch sang đầu tư căn hộ cho thuê và BĐS thương mại.</li>
+                        <ul class="check-list" data-lang="vi">
+                            <li><i class="fa-solid fa-check"></i> <strong>Vay thế chấp (Hypotéka):</strong> Hồ sơ khó, lãi suất tốt.</li>
+                            <li><i class="fa-solid fa-check"></i> Tìm nhà đất theo nhu cầu kinh doanh hoặc ở.</li>
+                            <li><i class="fa-solid fa-check"></i> Tư vấn chứng minh nguồn tiền hợp lệ.</li>
+                            <li><i class="fa-solid fa-check"></i> Quản lý bất động sản cho thuê.</li>
                         </ul>
                     </div>
                 </div>
@@ -359,128 +289,61 @@
         </div>
     </section>
 
-    <section id="o-mne" class="bg-light">
+    <section id="o-mne">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-5 text-center mb-4 mb-md-0">
-                    <img src="static/img/1atu.jpg" alt="Ing. Minh Tu Pham" class="about-img" title="Ing. Minh Tu Pham - PanTu Reality">
+                <div class="col-md-5 mb-4 mb-md-0">
+                    <img src="static/img/1atu.jpg" alt="Ing. Minh Tu Pham" class="about-img">
                 </div>
                 <div class="col-md-7">
+                    <h2 class="section-title text-start mb-4" data-lang="cs">O mně</h2>
+                    <h2 class="section-title text-start mb-4" data-lang="vi">Về tôi</h2>
+                    <h4 class="text-primary mb-3">Ing. Minh Tu Pham (Pan Tu)</h4>
+                    
                     <div data-lang="cs">
-                        <h2 class="section-title text-start mb-4">O mně a mém týmu</h2>
-                        <h4 class="text-primary mb-3">Ing. Minh Tu Pham (Pan Tu)</h4>
-                        <p>Jmenuji se Minh Tu Pham. Vystudoval jsem stavební fakultu na ČVUT. Prahu považuji za svůj domov a mám zde rodinu.</p>
-                        <p>K realitám mě přivedla touha pomáhat přátelům. Zjistil jsem, že propojení českého a vietnamského trhu je klíčem k úspěchu. Dnes vedu profesionální realitní praxi.</p>
-                        
-                        <div class="alert alert-info mt-3 border-0 shadow-sm" style="background-color: #e3f2fd; border-left: 5px solid #004d99;">
-                             <strong><i class="fa-solid fa-circle-info text-primary"></i> Víte, že?</strong><br>
-                             Mezi mými klienty (kupující i prodávající) tvoří <strong>65 až 80 % Češi</strong>. Zbývající část tvoří Vietnamci a jiní cizinci. Jsem makléř pro všechny.
-                        </div>
-
-                        <div class="bg-white p-3 rounded border mt-3">
-                            <h5 class="text-danger">Síla týmu & Zázemí</h5>
-                            <p class="mb-0">Nejste v tom sami. Za mnou stojí tým <strong>20 zkušených profesionálů</strong> a silné zázemí sítě <strong>BePlan</strong>.</p>
+                        <p>Vystudoval jsem stavební fakultu na ČVUT. Prahu považuji za svůj domov a mám zde rodinu. K realitám mě přivedla touha pomáhat lidem bezpečně investovat.</p>
+                        <div class="alert alert-info border-0 shadow-sm">
+                            <strong>Víte, že?</strong> Mezi mými klienty tvoří <strong>65 až 80 % Češi</strong>. Jsem makléř, který propojuje oba světy.
                         </div>
                     </div>
 
                     <div data-lang="vi">
-                        <h2 class="section-title text-start mb-4">Về tôi & Đội ngũ</h2>
-                        <h4 class="text-primary mb-3">Kỹ sư Phạm Minh Tứ (Pan Tu)</h4>
-                        <p>Tôi tốt nghiệp Đại học Bách Khoa (ČVUT). Với phương châm "Làm việc bằng cái Tâm", tôi đã giúp hàng trăm gia đình người Việt an cư lạc nghiệp tại Séc.</p>
-                        
-                        <div class="alert alert-info mt-3 border-0 shadow-sm" style="background-color: #e3f2fd; border-left: 5px solid #004d99;">
-                             <strong><i class="fa-solid fa-circle-info text-primary"></i> Bạn có biết?</strong><br>
-                             <strong>65% đến 80%</strong> khách hàng của tôi (cả mua và bán) là người Séc. Phần còn lại là người Việt và người nước ngoài khác. Tôi là cầu nối thực sự giữa hai cộng đồng.
-                        </div>
-
-                        <div class="bg-white p-3 rounded border mt-3">
-                            <h5 class="text-danger">Sức mạnh đội ngũ</h5>
-                            <p class="mb-0">Bạn không đơn độc. Đứng sau tôi là đội ngũ <strong>20 chuyên gia</strong> và tập đoàn <strong>BePlan</strong>. Chúng tôi giải quyết mọi vấn đề pháp lý.</p>
+                        <p>Tôi tốt nghiệp Đại học Bách Khoa Praha (ČVUT). Với phương châm làm việc bằng cái Tâm, tôi đã hỗ trợ hàng trăm gia đình sở hữu tổ ấm tại Séc.</p>
+                        <div class="alert alert-info border-0 shadow-sm">
+                            <strong>Bạn có biết?</strong> <strong>65% - 80%</strong> khách hàng của tôi là người Séc. Tôi là cầu nối uy tín giữa cộng đồng Việt và thị trường bản địa.
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white">
-        <div class="container text-center">
-            <div data-lang="cs">
-                <h3 class="mb-3">Sledujte mě na Facebooku 🇻🇳</h3>
-                <p class="mb-2">Přidejte se k naší komunitě na stránce <a href="https://www.facebook.com/BDSphamtu" target="_blank" class="fw-bold">BDSphamtu</a>.</p>
-                <a href="https://www.facebook.com/BDSphamtu" target="_blank" class="btn btn-primary mb-4" style="background-color: #1877F2; border: none;">
-                    <i class="fa-brands fa-facebook me-2"></i> Sledovat
-                </a>
-            </div>
-            
-            <div data-lang="vi">
-                <h3 class="mb-3">Kết nối trên Facebook 🇻🇳</h3>
-                <p class="mb-2">Theo dõi fanpage <a href="https://www.facebook.com/BDSphamtu" target="_blank" class="fw-bold">BDSphamtu</a> để cập nhật tin tức.</p>
-                <a href="https://www.facebook.com/BDSphamtu" target="_blank" class="btn btn-primary mb-4" style="background-color: #1877F2; border: none;">
-                    <i class="fa-brands fa-facebook me-2"></i> Theo dõi
-                </a>
-            </div>
-            
-            <div class="d-flex justify-content-center">
-                <div class="fb-page" 
-                     data-tabs="timeline" 
-                     data-href="https://www.facebook.com/BDSphamtu" 
-                     data-width="500" 
-                     data-hide-cover="false" 
-                     data-show-facepile="true">
                 </div>
             </div>
         </div>
     </section>
 
     <section id="kontakt" class="bg-light">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="section-title" data-lang="cs">Kontakt</h2>
-                    <h2 class="section-title" data-lang="vi">Liên hệ</h2>
-                    
-                    <p class="mb-4 lead" data-lang="cs">Spojte se se mnou pro profesionální služby v oblasti realit a financí.</p>
-                    <p class="mb-4 lead" data-lang="vi">Hãy gọi cho tôi để tìm giải pháp tốt nhất cho ngôi nhà của bạn.</p>
-                    
-                    <div class="row text-start mt-5">
-                        <div class="col-md-6 mb-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fa-solid fa-phone fa-2x text-primary me-3"></i>
-                                <div>
-                                    <h5 class="mb-0" data-lang="cs">Telefon (WhatsApp/Viber)</h5>
-                                    <h5 class="mb-0" data-lang="vi">Điện thoại (WhatsApp/Viber)</h5>
-                                    <a href="tel:+420778081986" class="text-decoration-none text-dark fs-5 fw-bold">+420 778 081 986</a>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fa-solid fa-envelope fa-2x text-primary me-3"></i>
-                                <div>
-                                    <h5 class="mb-0">Email</h5>
-                                    <a href="mailto:reality@pantu.cz" class="text-decoration-none text-dark">reality@pantu.cz</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                             <div class="d-flex align-items-center mb-3">
-                                <i class="fa-solid fa-location-dot fa-2x text-primary me-3"></i>
-                                <div>
-                                    <h5 class="mb-0" data-lang="cs">Kancelář</h5>
-                                    <h5 class="mb-0" data-lang="vi">Văn phòng</h5>
-                                    <p class="mb-0">TTTM SAPA, Praha 4<br>
-                                        <small data-lang="cs">(5. patro, vedle restaurace Đông Đô)</small>
-                                        <small data-lang="vi">(Tầng 5, tòa nhà cạnh nhà hàng Đông Đô)</small>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <i class="fa-brands fa-facebook fa-2x text-primary me-3"></i>
-                                <div>
-                                    <h5 class="mb-0">Facebook</h5>
-                                    <a href="https://www.facebook.com/BDSphamtu" target="_blank">BDSphamtu</a>
-                                </div>
-                            </div>
-                        </div>
+        <div class="container text-center">
+            <h2 class="section-title" data-lang="cs">Kontaktujte mě</h2>
+            <h2 class="section-title" data-lang="vi">Liên hệ với tôi</h2>
+            
+            <div class="row g-4 mt-4">
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded shadow-sm">
+                        <i class="fa-solid fa-phone fa-3x text-primary mb-3"></i>
+                        <h5>Telefon / WhatsApp</h5>
+                        <a href="tel:+420778081986" class="text-decoration-none h4 d-block">+420 778 081 986</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded shadow-sm">
+                        <i class="fa-solid fa-envelope fa-3x text-primary mb-3"></i>
+                        <h5>Email</h5>
+                        <a href="mailto:reality@pantu.cz" class="text-decoration-none h4 d-block">reality@pantu.cz</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded shadow-sm">
+                        <i class="fa-solid fa-location-dot fa-3x text-primary mb-3"></i>
+                        <h5 data-lang="cs">Kancelář</h5>
+                        <h5 data-lang="vi">Văn phòng</h5>
+                        <p class="mb-0 h5">TTTM SAPA, Praha 4</p>
                     </div>
                 </div>
             </div>
@@ -488,15 +351,11 @@
     </section>
 
     <footer>
-        <div class="container">
+        <div class="container text-center">
             <p class="mb-2"><strong>Ing. Minh Tu Pham (PanTu Reality) | IČO: 66473721</strong></p>
-            <p class="small text-muted mb-3" data-lang="cs">
-                Investiční služby, zprostředkování pojištění a úvěrů jsou poskytovány na základě registrace vázaného zástupce pod BEplan finanční plánování s.r.o.
-            </p>
-            <p class="small text-muted mb-3" data-lang="vi">
-                Các dịch vụ đầu tư, bảo hiểm và tín dụng được cung cấp dưới danh nghĩa đại lý liên kết của công ty BEplan finanční plánování s.r.o.
-            </p>
-            <p class="mb-0">© 2026 pantu.cz | <a href="https://nnmm.cz/dictionary.html" style="color: #ccc;">Slovník/Từ điển</a></p>
+            <p class="small text-muted" data-lang="cs">Investiční služby jsou poskytovány pod BEplan finanční plánování s.r.o.</p>
+            <p class="small text-muted" data-lang="vi">Dịch vụ tài chính được cung cấp thông qua BEplan finanční plánování s.r.o.</p>
+            <p class="mt-4">© 2026 pantu.cz</p>
         </div>
     </footer>
 
@@ -507,10 +366,9 @@
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0"></script>
-
     <script>
         function setLanguage(lang) {
+            // Skryje/zobrazí prvky podle data-lang
             document.querySelectorAll('[data-lang]').forEach(el => {
                 if (el.getAttribute('data-lang') === lang) {
                     el.classList.add('active');
@@ -518,12 +376,17 @@
                     el.classList.remove('active');
                 }
             });
+
+            // Vizualizace tlačítek jazyků
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active-lang'));
             document.getElementById('btn-' + lang).classList.add('active-lang');
+            
+            // Uložení volby
             document.documentElement.lang = lang;
             localStorage.setItem('preferredLang', lang);
         }
 
+        // Inicializace při načtení
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferredLang') || 'cs';
             setLanguage(savedLang);
